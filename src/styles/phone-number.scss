@@ -1,0 +1,256 @@
+@import './global-variables.scss';
+
+.phone-number {
+  height: 100vh;
+  flex-direction: column;
+  @include flex-center;
+}
+
+.header {
+  height: 100px;
+  width: calc(100% - 90px);
+  max-width: 1330px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+
+}
+
+.mob-paycheck-link {
+  display: none;
+}
+
+
+.paycheck-btn {
+  height: 41px;
+  width: 149.5px;
+  --tw-text-opacity: 0.6;
+  background-color: rgba(0, 0, 0, var(--tw-text-opacity));
+  @include flex-center;
+  color: #fff;
+  text-decoration: none;
+
+  &:hover {
+    --tw-text-opacity: 1;
+    color: #7DEDDD;
+  }
+}
+
+
+.uni-wrapper {
+  height: 90px;
+  cursor: pointer;
+}
+
+#bg-video {
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+}
+
+.content,
+.sticky-input {
+  width: calc(100% - 48px);
+  max-width: 1280px;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+
+  .major {
+    font-size: 3.4rem;
+    max-width: 710px;
+
+    .strong {
+      font-weight: bold;
+    }
+  }
+
+  .hero-img {
+    max-width: 420px;
+    max-height: 420px;
+    margin-left: 58px
+  }
+
+  .sub-text {
+    margin-top: 27px;
+    font-size: 0.95rem;
+    font-weight: 600 !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 370px;
+  }
+
+  .input {
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 44px;
+    width: 320px;
+    padding: 4px 4px 4px 8px;
+    font-size: 0.875rem;
+    margin-top: 36px;
+
+    .clear {
+      cursor: pointer;
+    }
+
+    &-field {
+      &::placeholder {
+        color: #9EA7AE !important;
+        font-size: 16px;
+      }
+
+
+
+      background-color: black;
+      border: none;
+      height: 32px;
+      outline: none;
+      width: 188px;
+      color: white;
+      font-size: 1rem;
+    }
+
+    .apply {
+      height: 44px;
+      width: 99px;
+      @include flex-center;
+      background-color: rgba(253, 239, 120, 1);
+      margin-left: 6px;
+      cursor: pointer;
+
+      &.disabled {
+        opacity: .8;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  .agreement {
+    display: flex;
+    width: 306px;
+    margin-left: 3px;
+    margin-top: 18px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+
+    .text {
+      font-size: 10px;
+      margin-left: 3px;
+    }
+  }
+}
+
+.sticky-input {
+  position: fixed;
+  bottom: 0;
+  width: calc(100% - 140px);
+  height: 96px;
+  background: rgb(245, 245, 245);
+  align-items: center;
+  max-width: unset;
+  padding: 0 70px;
+  display: flex;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+
+
+  &.active {
+    opacity: 1;
+
+    .input-field {
+      cursor: unset;
+    }
+  }
+
+  .input,
+  .agreement {
+    margin-top: 0px;
+
+    &-field {
+      cursor: default;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+
+  .header {
+    .uni-wrapper {
+      height: 71px;
+    }
+
+    .mob-paycheck-toggle {
+      width: 44px;
+      height: 44px;
+      margin-right: -19px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &:active {
+        background-color: #7AC1E4;
+      }
+    }
+  }
+
+  .mob-paycheck-link {
+    background-color: rgba(0, 0, 0, 0.6);
+    height: 61px;
+    width: 100%;
+    top: 90px;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    z-index: 1;
+    text-decoration: none;
+    font-size: .875rem;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none;
+
+    >div,
+    svg {
+      margin: 0 20px;
+    }
+
+  }
+
+  .active {
+    opacity: 1;
+    pointer-events: unset;
+  }
+
+  .content {
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+
+    .major {
+      font-size: 1.875rem;
+      max-width: 313px;
+    }
+
+    .hero-img {
+      width: 225px;
+      margin-left: unset
+    }
+
+    .sub-text {
+      font-size: .875rem;
+    }
+  }
+
+  .sticky-input-mobile {}
+}

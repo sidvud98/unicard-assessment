@@ -1,0 +1,10 @@
+.rounded-xl {
+  border-radius: 0.75rem;
+}
+
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
